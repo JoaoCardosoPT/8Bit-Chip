@@ -9,7 +9,7 @@ typedef enum {
 } registers;
 
 typedef struct {
-	uint8_t registers[0];
+	uint8_t registers[8];
 	uint16_t pc;
 	bool is_running;
 	bool is_priveleg;
