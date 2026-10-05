@@ -1,7 +1,6 @@
 #ifndef RAM_H
 #define RAM_H
 
-#include <cstdint>
 #include <stdint.h>
 #define RAM_SIZE 65536
 

@@ -2,7 +2,7 @@ CC = gcc
 NAME := chip
 CFLAGS = -Wextra -Werror -Wall
 
-SOURCE := main.c $(wildcard files/*.c)
+SOURCE := main.c $(wildcard src/files/*.c)
 INCLUDES := -Iincludes
 
 all: $(NAME)
@@ -15,10 +15,3 @@ clean:
 
 fclean: clean
 re: fclean all
-
-
-
-
-
-
-

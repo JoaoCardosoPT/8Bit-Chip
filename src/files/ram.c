@@ -1,5 +1,4 @@
 #include "../includes/ram.h"
-#include <cstdio>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdbool.h>
@@ -7,7 +6,7 @@
 static uint8_t ram[RAM_SIZE];
 
 // initialize the RAM at 0
-void ram_init(void)
+void memory_init(void)
 {
 	for (int i = 0; i < RAM_SIZE; i++)
 		ram[i] = 0;

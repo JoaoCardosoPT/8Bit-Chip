@@ -15,4 +15,6 @@ typedef struct {
 	bool is_priveleg;
 } CPU;
 
+extern CPU my_cpu;
+void init_cpu(void);
 #endif
