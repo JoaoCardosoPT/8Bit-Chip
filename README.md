@@ -1,6 +1,5 @@
 # CHIP-8 Emulator
 
 A CHIP-8 emulator written in C with a 64KB memory
+<img width="848" height="435" alt="Screenshot-2026-10-05_10-43-23-126871978" src="https://github.com/user-attachments/assets/1ec9adb0-497e-4883-b51a-a1cbbfa2d817" />
 
-These project is still in development...
-<img width="667" height="252" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/2cc1a2d0-3fae-4f45-928c-d5247bdfc316" />
