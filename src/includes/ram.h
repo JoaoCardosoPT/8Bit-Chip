@@ -2,6 +2,7 @@
 #define RAM_H
 
 #include <stdint.h>
+#include <stdbool.h>
 #define RAM_SIZE 65536
 
 #define KERNEL_SPACE 0x1FFF

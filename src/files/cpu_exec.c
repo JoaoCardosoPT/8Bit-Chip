@@ -25,6 +25,12 @@ void execute_next_instructions(void)
 		case 0x10:
 			my_cpu.registers[R0] = my_cpu.registers[R0] + my_cpu.registers[R1];
 			break;
+		case 0x11:
+			my_cpu.registers[R0] = my_cpu.registers[R0] * my_cpu.registers[R1];
+			break;
+		case 0x12:
+			my_cpu.registers[R0] = my_cpu.registers[R0] - my_cpu.registers[R1];
+			break;
 		default:
 			printf("Error: Invalid Opcode!\n");
 			my_cpu.is_running = false;

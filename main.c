@@ -6,6 +6,9 @@
 #include "src/includes/loader.h"
 #include "src/includes/cpu_exec.h"
 
+// TODO 
+// Register flexibility
+// Create a mini shell to execute commands
 int main(int argc, char **argv)
 {
 	if (argc != 2)

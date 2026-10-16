@@ -32,6 +32,14 @@ void dissasemble(const uint8_t *code, size_t size)
 				printf("ADD\n");
 				pc++;
 				break;
+			case 0x11:
+				printf("MULTIPLY\n");
+				pc++;
+				break;
+			case 0x12:
+				printf("SUBTRACT\n");
+				pc++;
+				break;
 			default:
 				printf("Unknown Opcode\n");
 				pc++;
