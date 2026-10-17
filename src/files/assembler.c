@@ -9,13 +9,11 @@
 void assemble_line(const char *line, uint8_t *output_buffer, int *buffer_size)
 {
 	char command[20];
-	// first argument as text
 	char argument_text[64];
-	int argument = 0;
 	*buffer_size = 0;
 
-	// delimit to 19 characters
-	int items_parsed = sscanf(line, "%19s %d", command, argument_text);
+	// Leaving room for the null operator
+	int items_parsed = sscanf(line, "%19s %63s", command, argument_text);
 
 	if (items_parsed <= 0)
 		return;
@@ -61,7 +59,7 @@ void assemble_line(const char *line, uint8_t *output_buffer, int *buffer_size)
 			}
 
 			// Converts to 8 bits withouth signal (0 - 255)
-			argument = (uint8_t)value;
+			output_buffer[1] = (uint8_t)value;
 		}
 
 		*buffer_size = instructions[i].size;

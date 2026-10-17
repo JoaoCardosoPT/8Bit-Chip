@@ -3,7 +3,7 @@ NAME := chip
 CFLAGS = -Wextra -Werror -Wall
 
 SOURCE := main.c $(wildcard src/files/*.c)
-INCLUDES := -Iincludes
+INCLUDES := -Isrc/includes
 
 all: $(NAME)
 

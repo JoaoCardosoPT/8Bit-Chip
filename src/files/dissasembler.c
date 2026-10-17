@@ -1,10 +1,11 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdio.h>
+#include "dissasembler.h"
 
 void dissasemble(const uint8_t *code, size_t size)
 {
-	size_t pc = 0;
+	size = 0;
 	while (pc < size)
 	{
 		printf("%04zX: ", pc);

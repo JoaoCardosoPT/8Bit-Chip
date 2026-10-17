@@ -1,5 +1,4 @@
 Structure
-- Enable Compile Warning
 - Share Instruction metadata with dissasembler
 - Test every instruction
 
