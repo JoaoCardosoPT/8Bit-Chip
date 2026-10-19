@@ -1,50 +1,48 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdio.h>
-#include "dissasembler.h"
 
+#include "../includes/instructions.h"
 void dissasemble(const uint8_t *code, size_t size)
 {
-	size = 0;
-	while (pc < size)
-	{
-		printf("%04zX: ", pc);
-		uint8_t opcode = code[pc];
-		switch (opcode)
-		{
-			case 0x00:
-				printf("HALT\n");
-				// Instructions ocupies 1 byte
-				pc++;
-				break;
-			case 0x01:
-			case 0x02:
-				// how many bytes are left, including the byte at the position
-				if (size - pc < 2)
-				{
-					printf("DB 0x%02X: argument miss\n", (unsigned)opcode);
-					pc++;
-					break;
-				}
-				printf("LOAD_R%u %u\n", (unsigned)(opcode - 0x01), (unsigned)code[pc + 1]);
-				pc += 2;
-				break;
-			case 0x10:
-				printf("ADD\n");
-				pc++;
-				break;
-			case 0x11:
-				printf("MULTIPLY\n");
-				pc++;
-				break;
-			case 0x12:
-				printf("SUBTRACT\n");
-				pc++;
-				break;
-			default:
-				printf("Unknown Opcode\n");
-				pc++;
-				break;
-		}	
-	}	
+    size_t count = sizeof instructions / sizeof instructions[0];
+    size_t pc = 0;
+
+    while (pc < size)
+    {
+        const Instructions *inst = NULL;
+
+        for (size_t i = 0; i < count; i++)
+        {
+            if (instructions[i].opcode == code[pc])
+            {
+                inst = &instructions[i];
+                break;
+            }
+        }
+
+        if (inst == NULL)
+        {
+            printf("DV 0x%02X\n", (unsigned)code[pc]);
+            pc++;
+            continue;
+        }
+
+        // Check that the complete instruction fits in the input, Ex: Load_R0 Requires an opcode and Operand
+        if ((size_t)inst->size > size - pc)
+        {
+            printf("DB 0x%02X ; incomplete %s\n", (unsigned)code[pc], inst->name);
+            break;
+        }
+
+        printf("%s", inst->name);
+
+        if (inst->size == 2)
+        {
+            printf(" %u", (unsigned)code[pc + 1]);
+        }
+
+        printf("\n");
+        pc += (size_t)inst->size;
+    }
 }

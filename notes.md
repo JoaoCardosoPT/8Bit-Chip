@@ -1,5 +1,4 @@
 Structure
-- Share Instruction metadata with dissasembler
 - Test every instruction
 
 New Features
